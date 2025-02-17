@@ -64,40 +64,138 @@ sdkmanager "platforms;android-34"</code></pre>
         <pre><code>sdkmanager "system-images;android-34;google_apis;x86_64"</code></pre>
 
         <h3>Create a New AVD:</h3>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>Note: You can replace <span style="color: #76FF03;">MyAVD</span> with the name you want to give your
+                AVD.</li>
+        </ul>
         <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
+
 
         <h2>4. List Emulators</h2>
         <pre><code>emulator -list-avds</code></pre>
 
         <h2>5. Run Emulator</h2>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>note: replace <span style="color: #76FF03;">MyAVD</span> with your AVD's name.
+                
+            </li>
+        </ul>
         <pre><code>emulator -avd MyAVD </code></pre>
 
         <h4>Run Emulator by full Strength:</h4>
 
         <pre><code>emulator -avd MyAVD -netdelay none -netspeed full -gpu on -memory 4096 -cores 4 -no-snapshot-load -feature KeyboardSupport</code></pre>
+        <p>
+            <strong>Command Explanation:</strong>
+        <ul>
+            <li><code>-avd MyAVD</code>: Specifies the AVD (Android Virtual Device) name.</li>
+            <li><code>-netdelay none</code>: No network delay.</li>
+            <li><code>-netspeed full</code>: Sets full network speed.</li>
+            <li><code>-gpu on</code>: Enables GPU support.</li>
+            <li><code>-memory 4096</code>: Allocates 4096 MB of RAM to the emulator.</li>
+            <li><code>-cores 4</code>: Allocates 4 CPU cores.</li>
+            <li><code>-no-snapshot-load</code>: Disables loading from a snapshot.</li>
+            <li><code>-feature KeyboardSupport</code>: Enables keyboard input support.</li>
+        </ul>
+        </p>
+        <p>
+            <strong>Common AVD Commands:</strong>
+        <ul>
+            <li><code>-avd &lt;name&gt;</code>: Start the emulator with the specified AVD name.</li>
+            <li><code>-netdelay &lt;delay&gt;</code>: Set network latency (e.g., <code>none</code>, <code>gsm</code>,
+                <code>edge</code>).
+            </li>
+            <li><code>-netspeed &lt;speed&gt;</code>: Set network speed (e.g., <code>full</code>, <code>gsm</code>,
+                <code>hspa</code>).
+            </li>
+            <li><code>-no-boot-anim</code>: Disable the boot animation for faster startup.</li>
+            <li><code>-no-snapshot</code>: Prevent saving a snapshot on exit.</li>
+            <li><code>-no-window</code>: Run the emulator in headless mode (no UI window).</li>
+            <li><code>-gpu off</code>: Disable GPU emulation.</li>
+            <li><code>-writable-system</code>: Enable writable system partition.</li>
+            <li><code>-camera-back &lt;mode&gt;</code>: Set the back camera (e.g., <code>emulated</code> or
+                <code>none</code>).
+            </li>
+            <li><code>-scale &lt;scale&gt;</code>: Set the display scale (e.g., <code>0.5</code> for 50% size).</li>
+            <li><code>-memory &lt;size&gt;</code>: Allocate RAM to the emulator (e.g., <code>2048</code> MB).</li>
+            <li><code>-skin &lt;size&gt;</code>: Specify the screen size (e.g., <code>480x800</code>).</li>
+            <li><code>-logcat *:I</code>: Display log messages in the emulator console.</li>
+        </ul>
+        </p>
+        <strong>to configure the harder of AVD, your can do that from your avd's <code>config.ini</code> file</strong>
+        <pre>C:\Users\username\.android\avd\yourAdvname.avd\</pre>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>note: replace <span style="color: #76FF03;">username</span> with your PC's username and replace
+                <span style="color: #76FF03;">yourAdvname</span> with your AVD's name
+            </li>
+        </ul>
 
-        <h2>6. Force Kill an Emulator</h2>
+        <br><br>
+
+        <hr style="height: 3px; background-color: brown;">
+        <h2 style="text-align: center;">Other AVD Commands</h2>
+        <hr style="height: 3px; background-color: brown;">
+
+        <h2>Force Kill an Emulator</h2>
+        <h4>to get the Emulator devices</h4>
+        <pre><code>adb devices</code></pre>
+        <h5>ADB Devices Output</h5>
+        <pre>
+C:\Users\"username">adb devices
+List of devices attached
+emulator-5554   device
+        </pre>
+        <h4>Kill Emulator</h4>
         <pre><code>adb -s emulator-5554 emu kill</code></pre>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>note: replace <span style="color: #76FF03;">emulator-5554</span> with your device name</li>
+        </ul>
 
-        <h2>7. Update SDK and AVD</h2>
+        <h2>Update SDK and AVD</h2>
         <h3>Update All SDK Components:</h3>
         <pre><code>sdkmanager --update</code></pre>
 
         <h3>Update the Emulator:</h3>
         <pre><code>sdkmanager "emulator"</code></pre>
 
-        <h2>8. Start and Stop the ADB Server</h2>
+        <h2>Start and Stop the ADB Server</h2>
         <pre><code>adb kill-server
 adb start-server</code></pre>
 
-        <h2>9. Pull and Push Files to/from AVD</h2>
+        <h2>Pull and Push Files to/from AVD</h2>
+        <h3>Check File Existence on AVD:</h3>
+        <pre><code>adb shell mkdir /sdcard/Download</code></pre>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>note: replace <span style="color: #76FF03;">sdcard/Download</span> with the location you wanted to check
+            </li>
+        </ul>
+        <h5>Output</h5>
+        <pre>C:\Users\username>adb shell mkdir /sdcard/Download
+mkdir: '/sdcard/Download': File exists</pre>
         <h3>Pull Files:</h3>
         <pre><code>adb pull /sdcard/Download/ C:\AVDFiles</code></pre>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>Note: Replace <span style="color: #76FF03;">sdcard/Download</span> with your AVD location, and
+                <br>replace <span style="color: #76FF03;">C:\AVDFiles</span> with the location on your host device where
+                you want to pull the files.
+            </li>
+        </ul>
 
         <h3>Push Files:</h3>
         <pre><code>adb push C:\AVDFiles\myfile.txt /sdcard/Download/</code></pre>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>Note: Replace <span style="color: #76FF03;">sdcard/Download</span> with your AVD location, and
+                <br>replace <span style="color: #76FF03;">C:\AVDFiles</span> with the location on your host device where
+                you want to pull the files.
+            </li>
+        </ul>
 
-        <h2>10. Uninstall SDK Components</h2>
+        <h2>Uninstall AVD & SDK Components</h2>
+        <h4>Uninstall AVD</h4>
+        <ul style="font-size: 0.9rem; list-style-type: disc;">
+            <li>Note: Replace <span style="color: #76FF03;">MyAVD</span> with your AVD name.</li>
+        </ul>
+        <pre><code>avdmanager delete avd -n MyAVD</code></pre>
         <pre><code>sdkmanager --uninstall "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_play;x86_64"</code></pre>
 
     </div>
