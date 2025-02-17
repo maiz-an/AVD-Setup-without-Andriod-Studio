@@ -220,7 +220,26 @@ mkdir: '/sdcard/Download': File exists</pre>
                 href="https://github.com/maiz-an/Android-Virtual-Device-AVD-Setup-without-Andriod-Studio"
                 target="_blank" style="font-size: 1rem;">README.MD</a></p>
     </footer>
+<!-- Scroll Buttons -->
+<div id="scroll-buttons">
+    <button id="scroll-up" class="scroll-btn">↑ Top</button>
+    <button id="scroll-down" class="scroll-btn">↓ Bottom</button>
+</div>
+<script>
+    document.getElementById('scroll-up').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scrolling
+        });
+    });
 
+    document.getElementById('scroll-down').addEventListener('click', function() {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth' // Smooth scrolling
+        });
+    });
+</script>
 </body>
 
 </html>
