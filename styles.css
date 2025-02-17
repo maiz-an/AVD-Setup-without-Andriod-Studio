@@ -1,0 +1,198 @@
+/* For WebKit browsers (Chrome, Safari, Edge) */
+body::-webkit-scrollbar, *::-webkit-scrollbar {
+    width: 8px; /* Narrow width for vertical scrollbar */
+    height: 8px; /* Narrow height for horizontal scrollbar */
+}
+
+body::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
+    background: #1f1f1f; /* Dark track */
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+    background: #4CAF50; /* Green scrollbar thumb */
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover, *::-webkit-scrollbar-thumb:hover {
+    background: #36a03e; /* Darker green on hover */
+}
+
+/* For Firefox */
+body, * {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4CAF50 #1f1f1f; /* Thumb color and track background */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #e1aeae; /* Light text for readability */
+}
+
+header {
+    background-color: #473232; /* Darker shade of blue */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #1f1f1f; /* Dark gray container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3 {
+    color: #b9b5b6; /* Light blue headers for contrast */
+    margin-top: 1.5em;
+}
+
+.s1{
+    color: #b9b5b6; /* Light blue headers for contrast */
+
+}
+
+code {
+    background-color: #2e2e2e; /* Darker background for code snippets */
+    color: #a4d51c; /* Orange text for better visibility */
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+pre {
+    background-color: #1c1c1c; /* Very dark gray for pre blocks */
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #d0d0d0;
+    overflow-x: auto;
+}
+
+a {
+    color: #64b5f6; /* Light blue links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1e88e5; /* Slightly darker blue for hover */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    background-color: #3B3B3B; /* Soft gray background for footer */
+    color: #D1D1D1; /* Light gray text */
+    padding: 15px; /* Increased padding for better spacing */
+    position: relative;
+    bottom: 0;
+    border-top: 3px solid #802c53; /* Green border for a clean finish */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    color: #b9c1b9; /* Soft greenish color for footer text */
+    margin-bottom: 20px;
+}
+
+/* Contact section styling */
+footer .contact {
+    margin-top: 30px; /* More space between text and contact info */
+}
+
+footer .contact h3 {
+    font-size: 1.5em;
+    color: #76FF03; /* Green color for the heading */
+    margin-bottom: 15px;
+    font-family: 'Lora', serif; /* Stylish font for headings */
+}
+
+footer .contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .contact li {
+    margin: 15px 0; /* Spacing between each list item */
+    display: inline-block; /* Display items in a horizontal row */
+    padding: 0 15px; /* Space between items */
+}
+
+footer .contact a {
+    color: #b9c1b9; /* Soft greenish link color */
+    font-size: 1.3em;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+footer .contact a:hover {
+    color: #ffffff; /* Hover effect color */
+}
+
+footer .contact i {
+    margin-right: 10px;
+    font-size: 1.5em; /* Increase icon size */
+}
+
+/* Adding responsiveness */
+@media (max-width: 768px) {
+    footer .contact li {
+        display: block; /* Stack icons on smaller screens */
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    header {
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    code, pre {
+        font-size: 0.85em;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    code, pre {
+        font-size: 0.8em;
+    }
+}

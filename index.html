@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android SDK & AVD Setup Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="hero">
+        <h1>Android SDK & AVD Setup Guide</h1>
+        <span class="s1">A comprehensive step-by-step guide to setting up Android SDK and AVD for seamless development.
+            <br> Follow each step meticulously, and refer to the contact details in the footer for assistance.</span>
+    </header>
+
+    <div class="container">
+        <h2>1. Download SDK and Set Environment Variables</h2>
+
+        <h3>Step 1: Download and Unzip the Android SDK</h3>
+        <ol>
+            <li>Go to the <a href="https://developer.android.com/studio#downloads" target="_blank">Android SDK Download
+                    Page</a>.</li>
+            <li>Download the Command Line Tools (CLI) for your operating system.</li>
+            <li>Extract the ZIP file to a directory (e.g., <code>C:\AndroidSDK</code> or <code>~/Android/sdk</code>).
+            </li>
+        </ol>
+
+        <h3>Step 2: Set the SDK Path as a System Variable</h3>
+        <h4>For Windows:</h4>
+        <ol>
+            <li>Open "Control Panel" > "System" > "Advanced System Settings."</li>
+            <li>Click "Environment Variables" and add a new variable:</li>
+            <ul>
+                <li>Variable Name: <code>ANDROID_HOME</code></li>
+                <li>Variable Value: Path to the SDK (e.g., <code>C:\AndroidSDK</code>).</li>
+            </ul>
+            <li>Edit the <code>Path</code> variable and add <code>C:\AndroidSDK\platform-tools</code>.</li>
+        </ol>
+
+        <h4>For macOS:</h4>
+        <ol>
+            <li>Open the <code>.bash_profile</code> or <code>.zshrc</code> file:</li>
+            <pre><code>nano ~/.zshrc</code></pre>
+            <li>Add these lines:</li>
+            <pre><code>export ANDROID_HOME=~/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
+            <li>Apply changes with:</li>
+            <pre><code>source ~/.zshrc</code></pre>
+        </ol>
+
+        <h2>2. Install Build Tools and Platform for Android 34</h2>
+        <pre><code>sdkmanager "build-tools;34.0.0"
+sdkmanager "platforms;android-34"</code></pre>
+
+        <h2>3. Install System Images and Create an AVD</h2>
+        <h3>Install System Images:</h3>
+        <pre><code>sdkmanager "system-images;android-34;google_apis;x86_64"</code></pre>
+
+        <h3>Create a New AVD:</h3>
+        <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
+
+        <h2>4. List Emulators</h2>
+        <pre><code>emulator -list-avds</code></pre>
+
+        <h2>5. Run Emulator</h2>
+        <pre><code>emulator -avd MyAVD </code></pre>
+
+        <h4>Run Emulator by full Strength:</h4>
+
+        <pre><code>emulator -avd MyAVD -netdelay none -netspeed full -gpu on -memory 4096 -cores 4 -no-snapshot-load -feature KeyboardSupport</code></pre>
+
+        <h2>6. Force Kill an Emulator</h2>
+        <pre><code>adb -s emulator-5554 emu kill</code></pre>
+
+        <h2>7. Update SDK and AVD</h2>
+        <h3>Update All SDK Components:</h3>
+        <pre><code>sdkmanager --update</code></pre>
+
+        <h3>Update the Emulator:</h3>
+        <pre><code>sdkmanager "emulator"</code></pre>
+
+        <h2>8. Start and Stop the ADB Server</h2>
+        <pre><code>adb kill-server
+adb start-server</code></pre>
+
+        <h2>9. Pull and Push Files to/from AVD</h2>
+        <h3>Pull Files:</h3>
+        <pre><code>adb pull /sdcard/Download/ C:\AVDFiles</code></pre>
+
+        <h3>Push Files:</h3>
+        <pre><code>adb push C:\AVDFiles\myfile.txt /sdcard/Download/</code></pre>
+
+        <h2>10. Uninstall SDK Components</h2>
+        <pre><code>sdkmanager --uninstall "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_play;x86_64"</code></pre>
+
+    </div>
+
+    <footer>
+        <!-- Contact Information -->
+        <div class="contact">
+            <ul>
+                <!-- Email Icon -->
+                <li><a href="mailto:mohamedmaizanmunas@outlook.com"><i class="fas fa-envelope"></i> Email</a></li>
+
+                <!-- GitHub Icon -->
+                <li><a href="https://github.com/maiz-an" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+
+                <!-- Portfolio Icon -->
+                <li><a href="http://maizan.infinityfreeapp.com/" target="_blank"><i class="fas fa-briefcase"></i>
+                        Portfolio</a></li> <!-- New portfolio link -->
+            </ul>
+        </div>
+        <p>Good luck with your Android development journey! You've got this! 🚀</p>
+    </footer>
+
+</body>
+
+</html>
