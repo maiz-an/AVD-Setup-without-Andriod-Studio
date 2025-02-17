@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Setting up an Android Virtual Device (AVD) without Android Studio by downloading only the SDK command line tools.">
+    <meta name="keywords" content="AVD Setup without Andriod Studio">
+    <meta name="robots" content="index, follow">
     <title>Android SDK & AVD Setup Guide</title>
     <link rel="icon" type="image/png" href="fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -77,7 +80,7 @@ sdkmanager "platforms;android-34"</code></pre>
         <h2>5. Run Emulator</h2>
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>note: replace <span style="color: #76FF03;">MyAVD</span> with your AVD's name.
-                
+
             </li>
         </ul>
         <pre><code>emulator -avd MyAVD </code></pre>
@@ -220,26 +223,26 @@ mkdir: '/sdcard/Download': File exists</pre>
                 href="https://github.com/maiz-an/Android-Virtual-Device-AVD-Setup-without-Andriod-Studio"
                 target="_blank" style="font-size: 1rem;">README.MD</a></p>
     </footer>
-<!-- Scroll Buttons -->
-<div id="scroll-buttons">
-    <button id="scroll-up" class="scroll-btn">↑ Top</button>
-    <button id="scroll-down" class="scroll-btn">↓ Bottom</button>
-</div>
-<script>
-    document.getElementById('scroll-up').addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Smooth scrolling
+    <!-- Scroll Buttons -->
+    <div id="scroll-buttons">
+        <button id="scroll-up" class="scroll-btn">↑ Top</button>
+        <button id="scroll-down" class="scroll-btn">↓ Bottom</button>
+    </div>
+    <script>
+        document.getElementById('scroll-up').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling
+            });
         });
-    });
 
-    document.getElementById('scroll-down').addEventListener('click', function() {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth' // Smooth scrolling
+        document.getElementById('scroll-down').addEventListener('click', function () {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth' // Smooth scrolling
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
