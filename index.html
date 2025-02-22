@@ -45,6 +45,7 @@
             <li>Download the Command Line Tools (CLI) for your operating system.</li>
             <li>Extract the ZIP file to a directory (e.g., <code>C:\AndroidSDK</code> or <code>~/Android/sdk</code>).
             </li>
+            
         </ol>
 
         <h3>Step 2: Set the SDK Path as a System Variable</h3>
@@ -55,8 +56,10 @@
             <ul>
                 <li>Variable Name: <code>ANDROID_HOME</code></li>
                 <li>Variable Value: Path to the SDK (e.g., <code>C:\AndroidSDK</code>).</li>
+                <li>Variable Name: <code>ANDROID_SDK_ROOT</code></li>
+                <li>Variable Value: Path to the SDK (e.g., <code>C:\AndroidSDK</code>).</li>
             </ul>
-            <li>Edit the <code>Path</code> variable and add <code>C:\AndroidSDK\platform-tools</code>.</li>
+            
         </ol>
 
         <h4>For macOS:</h4>
@@ -65,14 +68,18 @@
             <pre><code>nano ~/.zshrc</code></pre>
             <li>Add these lines:</li>
             <pre><code>export ANDROID_HOME=~/Android/sdk
+export ANDROID_SDK_ROOT=~/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
             <li>Apply changes with:</li>
             <pre><code>source ~/.zshrc</code></pre>
         </ol>
 
-        <h2>2. Install Build Tools and Platform for Android 34</h2>
-        <pre><code>sdkmanager "build-tools;34.0.0"
-sdkmanager "platforms;android-34"</code></pre>
+        <h2>2. Install Platform-tools, Platforms and Build Tools for Android 34</h2>
+        <pre><code>sdkmanager "platform-tools"</code>
+<code>sdkmanager "platforms;android-34"</code>
+<code>sdkmanager "build-tools;34.0.0"</code></pre>
+
+<li>Add System variable  <code>C:\AndroidSDK\platform-tools</code> & <code>C:\AndroidSDK\platforms</code></li>
 
         <h2>3. Install System Images and Create an AVD</h2>
         <h3>Install System Images:</h3>
@@ -84,7 +91,7 @@ sdkmanager "platforms;android-34"</code></pre>
                 AVD.</li>
         </ul>
         <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
-
+        <li>Add System variable to the Emulator (e.g., <code>C:\AndroidSDK\emulator</code>).</li>
 
         <h2>4. List Emulators</h2>
         <pre><code>emulator -list-avds</code></pre>
