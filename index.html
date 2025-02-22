@@ -45,7 +45,7 @@
             <li>Download the Command Line Tools (CLI) for your operating system.</li>
             <li>Extract the ZIP file to a directory (e.g., <code>C:\AndroidSDK</code> or <code>~/Android/sdk</code>).
             </li>
-            
+
         </ol>
 
         <h3>Step 2: Set the SDK Path as a System Variable</h3>
@@ -59,42 +59,67 @@
                 <li>Variable Name: <code>ANDROID_SDK_ROOT</code></li>
                 <li>Variable Value: Path to the SDK (e.g., <code>C:\AndroidSDK</code>).</li>
             </ul>
-            
+
         </ol>
 
         <h4>For macOS:</h4>
         <ol>
             <li>Open the <code>.bash_profile</code> or <code>.zshrc</code> file:</li>
-            <pre><code>nano ~/.zshrc</code></pre>
+            <div class="code-container">
+                <pre><code>nano ~/.zshrc</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            </div>
             <li>Add these lines:</li>
-            <pre><code>export ANDROID_HOME=~/Android/sdk
-export ANDROID_SDK_ROOT=~/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
+            <div class="code-container">
+                <pre><code>export ANDROID_HOME=~/Android/sdk</code>
+<code>export ANDROID_SDK_ROOT=~/Android/sdk</code>
+<code>export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            </div>
+
             <li>Apply changes with:</li>
-            <pre><code>source ~/.zshrc</code></pre>
+            <div class="code-container">
+                <pre><code>source ~/.zshrc</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            </div>
         </ol>
 
         <h2>2. Install Platform-tools, Platforms and Build Tools for Android 34</h2>
-        <pre><code>sdkmanager "platform-tools"</code>
+        <div class="code-container">
+            <pre><code>sdkmanager "platform-tools"</code>
 <code>sdkmanager "platforms;android-34"</code>
 <code>sdkmanager "build-tools;34.0.0"</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
 
-<li>Add System variable  <code>C:\AndroidSDK\platform-tools</code> & <code>C:\AndroidSDK\platforms</code></li>
-
+        <li>Add System variable <code>C:\AndroidSDK\platform-tools</code> & <code>C:\AndroidSDK\platforms</code></li>
         <h2>3. Install System Images and Create an AVD</h2>
         <h3>Install System Images:</h3>
-        <pre><code>sdkmanager "system-images;android-34;google_apis;x86_64"</code></pre>
-
+        <div class="code-container">
+            <pre><code>sdkmanager "system-images;android-34;google_apis;x86_64"</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
         <h3>Create a New AVD:</h3>
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>Note: You can replace <span style="color: #76FF03;">MyAVD</span> with the name you want to give your
                 AVD.</li>
         </ul>
-        <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
+        <div class="code-container">
+            <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
         <li>Add System variable to the Emulator (e.g., <code>C:\AndroidSDK\emulator</code>).</li>
 
         <h2>4. List Emulators</h2>
-        <pre><code>emulator -list-avds</code></pre>
+        <div class="code-container">
+            <pre><code>emulator -list-avds</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        <h5>List Emulators Output</h5>
+        <pre>
+C:\Users\username>emulator -list-avds
+MyAvd</pre>
 
         <h2>5. Run Emulator</h2>
         <ul style="font-size: 0.9rem; list-style-type: disc;">
@@ -102,11 +127,15 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
 
             </li>
         </ul>
-        <pre><code>emulator -avd MyAVD </code></pre>
-
+        <div class="code-container">
+            <pre><code>emulator -avd MyAVD </code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
         <h4>Run Emulator by full Strength:</h4>
-
-        <pre><code>emulator -avd MyAVD -netdelay none -netspeed full -gpu on -memory 4096 -cores 4 -no-snapshot-load -feature KeyboardSupport</code></pre>
+        <div class="code-container">
+            <pre><code>emulator -avd MyAVD -netdelay none -netspeed full -gpu on -memory 4096 -cores 4 -no-snapshot-load -feature KeyboardSupport</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
         <p>
             <strong>Command Explanation:</strong>
         <ul>
@@ -160,7 +189,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools</code></pre>
 
         <h2>Force Kill an Emulator</h2>
         <h4>to get the Emulator devices</h4>
-        <pre><code>adb devices</code></pre>
+        <div class="code-container">
+            <pre><code>adb devices</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
         <h5>ADB Devices Output</h5>
         <pre>
 C:\Users\"username">adb devices
@@ -168,25 +200,44 @@ List of devices attached
 emulator-5554   device
         </pre>
         <h4>Kill Emulator</h4>
-        <pre><code>adb -s emulator-5554 emu kill</code></pre>
+        <div class="code-container">
+            <pre><code>adb -s emulator-5554 emu kill</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>note: replace <span style="color: #76FF03;">emulator-5554</span> with your device name</li>
         </ul>
 
         <h2>Update SDK and AVD</h2>
         <h3>Update All SDK Components:</h3>
-        <pre><code>sdkmanager --update</code></pre>
+        <div class="code-container">
+            <pre><code>sdkmanager --update</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
 
         <h3>Update the Emulator:</h3>
-        <pre><code>sdkmanager "emulator"</code></pre>
+        <div class="code-container">
+            <pre><code>sdkmanager "emulator"</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
 
         <h2>Start and Stop the ADB Server</h2>
-        <pre><code>adb kill-server
-adb start-server</code></pre>
+        <div class="code-container">
+            <pre><code>adb kill-server</code>
+<code>adb start-server</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
 
         <h2>Pull and Push Files to/from AVD</h2>
         <h3>Check File Existence on AVD:</h3>
-        <pre><code>adb shell mkdir /sdcard/Download</code></pre>
+        <div class="code-container">
+            <pre><code>adb shell mkdir /sdcard/Download</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>note: replace <span style="color: #76FF03;">sdcard/Download</span> with the location you wanted to check
             </li>
@@ -195,7 +246,11 @@ adb start-server</code></pre>
         <pre>C:\Users\username>adb shell mkdir /sdcard/Download
 mkdir: '/sdcard/Download': File exists</pre>
         <h3>Pull Files:</h3>
-        <pre><code>adb pull /sdcard/Download/ C:\AVDFiles</code></pre>
+        <div class="code-container">
+            <pre><code>adb pull /sdcard/Download/ C:\AVDFiles</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+       
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>Note: Replace <span style="color: #76FF03;">sdcard/Download</span> with your AVD location, and
                 <br>replace <span style="color: #76FF03;">C:\AVDFiles</span> with the location on your host device where
@@ -204,7 +259,11 @@ mkdir: '/sdcard/Download': File exists</pre>
         </ul>
 
         <h3>Push Files:</h3>
-        <pre><code>adb push C:\AVDFiles\myfile.txt /sdcard/Download/</code></pre>
+        <div class="code-container">
+            <pre><code>adb push C:\AVDFiles\myfile.txt /sdcard/Download/</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>Note: Replace <span style="color: #76FF03;">sdcard/Download</span> with your AVD location, and
                 <br>replace <span style="color: #76FF03;">C:\AVDFiles</span> with the location on your host device where
@@ -217,8 +276,16 @@ mkdir: '/sdcard/Download': File exists</pre>
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>Note: Replace <span style="color: #76FF03;">MyAVD</span> with your AVD name.</li>
         </ul>
-        <pre><code>avdmanager delete avd -n MyAVD</code></pre>
-        <pre><code>sdkmanager --uninstall "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_play;x86_64"</code></pre>
+        <div class="code-container">
+            <pre><code>avdmanager delete avd -n MyAVD</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        <div class="code-container">
+            <pre><code>sdkmanager --uninstall "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_play;x86_64"</code></pre>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        
+        
 
     </div>
 
@@ -262,6 +329,28 @@ mkdir: '/sdcard/Download': File exists</pre>
             });
         });
     </script>
+    <script>
+        function copyToClipboard(button) {
+            const codeElement = button.previousElementSibling; // Selects the previous <code> element
+            if (!codeElement) return;
+
+            const textArea = document.createElement("textarea");
+            textArea.value = codeElement.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            // Change button text to "Copied!" temporarily
+            const originalText = button.innerText;
+            button.innerText = "Copied!";
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 1500); // Reset after 1.5 seconds
+        }
+    </script>
+
+
 </body>
 
 </html>

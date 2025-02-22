@@ -189,6 +189,32 @@ footer .contact i {
     /* Increase icon size */
 }
 
+.code-container {
+    position: relative;
+    width: 95%;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(162, 160, 160, 0.362); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(197, 195, 195, 0.362); /* Slightly more visible on hover */
+}
+
 
 
 #scroll-buttons {
