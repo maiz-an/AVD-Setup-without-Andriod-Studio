@@ -36,14 +36,16 @@
     </header>
 
     <div class="container">
-        <h2>1. Download SDK and Set Environment Variables</h2>
+        <h2>1. Download SDK tools package and Set Environment Variables</h2>
 
-        <h3>Step 1: Download and Unzip the Android SDK</h3>
+        <h3>Step 1: Download Command line tools and Unzip the Android SDK</h3>
         <ol>
             <li>Go to the <a href="https://developer.android.com/studio#downloads" target="_blank">Android SDK Download
                     Page</a>.</li>
             <li>Download the Command Line Tools (CLI) for your operating system.</li>
             <li>Extract the ZIP file to a directory (e.g., <code>C:\AndroidSDK</code> or <code>~/Android/sdk</code>).
+            </li>
+            <li>Set the path (e.g., <code>C:\AndroidSDK\cmdline-tools\bin</code> or <code>~/Android/sdk/cmdline-tools/bin</code>).
             </li>
 
         </ol>
@@ -99,7 +101,7 @@
             <pre><code>sdkmanager "system-images;android-34;google_apis;x86_64"</code></pre>
             <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
         </div>
-        
+        <li>Add System variable to the Emulator (e.g., <code>C:\AndroidSDK\emulator</code>).</li>
         <h3>Create a New AVD:</h3>
         <ul style="font-size: 0.9rem; list-style-type: disc;">
             <li>Note: You can replace <span style="color: #76FF03;">MyAVD</span> with the name you want to give your
@@ -109,8 +111,6 @@
             <pre><code>avdmanager create avd --name "MyAVD" --package "system-images;android-34;google_apis;x86_64"</code></pre>
             <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
         </div>
-        <li>Add System variable to the Emulator (e.g., <code>C:\AndroidSDK\emulator</code>).</li>
-
         <h2>4. List Emulators</h2>
         <div class="code-container">
             <pre><code>emulator -list-avds</code></pre>
